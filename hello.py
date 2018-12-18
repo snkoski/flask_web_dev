@@ -44,6 +44,13 @@ def get_user(id):
         abort(404)
     return '<h1>Hello, %s</h1>' % user.name
 
+@app.route('/filters')
+def get_filters():
+    phrase = "this is a phrase to test filters"
+    lower = "lower"
+    upper = "UPPER"
+    return render_template('filters.html', phrase=phrase, lower=lower, upper=upper)
+
 if __name__ == '__main__':
-    # app.run(debug=True)
-    manager.run()
+    app.run(debug=True)
+    # manager.run()
